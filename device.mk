@@ -331,6 +331,11 @@ PRODUCT_PACKAGES += \
 # UDFPS
 TARGET_HAS_UDFPS := true
 
+# Preopt
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Settings \
+    SystemUI
+    
 # QMI
 PRODUCT_PACKAGES += \
     libcurl.vendor:64 \
