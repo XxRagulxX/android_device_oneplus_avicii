@@ -1,4 +1,4 @@
-#
+ #
 # Copyright (C) 2018-2025 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -50,6 +50,10 @@ TARGET_PROVIDES_AUDIO_EXTNS := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := lito
+
+# Camera
+$(call soong_config_set,camera,override_format_from_reserved,true)
+$(call soong_config_set,camera,package_name,com.oneplus.camera)
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
