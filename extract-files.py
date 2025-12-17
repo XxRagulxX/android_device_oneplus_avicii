@@ -27,6 +27,7 @@ from extract_utils.utils import (
 
 namespace_imports = [
     'device/oneplus/avicii',
+    'hardware/oplus',
     'hardware/qcom-caf/sm8250',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/commonsys-intf/display',
