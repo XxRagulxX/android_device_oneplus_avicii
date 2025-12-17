@@ -498,8 +498,8 @@ PRODUCT_PACKAGES += \
     firmware_wlan_mac.bin_symlink \
     firmware_WCNSS_qcom_cfg.ini_symlink
 
-# Inherit from the OnePlus Apps makefile.
-$(call inherit-product, vendor/oneplus/apps/config.mk)
+# Inherit from the OnePlus Camera makefile.
+$(call inherit-product, vendor/oneplus/camera/config.mk)
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/avicii/avicii-vendor.mk)
