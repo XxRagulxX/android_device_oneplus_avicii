@@ -145,6 +145,7 @@ vendor.display.smomo_camera_support=1
 vendor.display.smomo_game_support=0
 vendor.display.smomo_strategy_type=1
 vendor.display.use_smooth_motion=1
+vendor.display.vds_allow_hwc=1
 
 # DPM
 persist.vendor.dpmhalservice.enable=1
@@ -166,7 +167,7 @@ vendor.gatekeeper.disable_spu=true
 
 # Graphics
 debug.sf.enable_advanced_sf_phase_offset=1
-debug.sf.enable_hwc_vds=1
+debug.sf.enable_hwc_vds=0
 debug.sf.high_fps_early_gl_phase_offset_ns=-4000000
 debug.sf.high_fps_early_phase_offset_ns=-4000000
 debug.sf.high_fps_late_sf_phase_offset_ns=-4000000
