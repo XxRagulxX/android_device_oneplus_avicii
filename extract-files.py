@@ -98,20 +98,19 @@ blob_fixups: blob_fixups_user_type = {
     ('odm/lib64/mediadrm/libwvdrmengine.so', 'odm/lib64/libwvhidl.so'): blob_fixup()
         .add_needed('libcrypto_shim.so'),
     'product/app/PowerOffAlarm/PowerOffAlarm.apk': blob_fixup()
-        .apktool_patch('blob-patches/PowerOffAlarm.patch', '-s'),
+        .apktool_patch('blob-patches/PowerOffAlarm.patch'),
     'product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml': blob_fixup()
         .regex_replace('/my_product', '/product'),
     'system_ext/framework/oplus-ims-ext.jar': blob_fixup()
-       .apktool_patch('blob-patches/oplus-ims-ext.patch', '-s'),
+       .apktool_patch('blob-patches/oplus-ims-ext.patch'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
-        .replace_needed('android.hidl.base@1.0.so', 'libhidlbase.so')
-        .add_needed('libbinder_shim.so')
         .add_needed('libinput_shim.so'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()
-        .regex_replace('NFC_DEBUG_ENABLED=1', 'NFC_DEBUG_ENABLED=0'),
+        .regex_replace('NFC_DEBUG_ENABLED=0x01', 'NFC_DEBUG_ENABLED=0x00'),
     'vendor/etc/libnfc-nxp.conf': blob_fixup()
+        .regex_replace('NXP_NFC_DEV_NODE="/dev/pn553"','NXP_NFC_DEV_NODE="/dev/nq-nci"')
         .regex_replace('(NXPLOG_.*_LOGLEVEL)=0x03', '\\1=0x02')
-        .regex_replace('NFC_DEBUG_ENABLED=1', 'NFC_DEBUG_ENABLED=0'),
+        .regex_replace('NFC_DEBUG_ENABLED=0x01', 'NFC_DEBUG_ENABLED=0x00'),
     'vendor/lib64/hw/com.qti.chi.override.so': blob_fixup()
         .add_needed('libcamera_metadata_shim.so')
         .binary_regex_replace(b'com.oem.autotest', b'\x00om.oem.autotest'),
@@ -126,8 +125,6 @@ blob_fixups: blob_fixups_user_type = {
 	.clear_symbol_version('remote_handle64_invoke')
 	.clear_symbol_version('remote_handle64_open')
     	.clear_symbol_version('remote_register_dma_handle'),
-    'vendor/lib64/libaps_frame_registration.so': blob_fixup()
-	.replace_needed('libstdc++.so', 'libstdc++_vendor.so'),
     'vendor/lib64/sensors.ssc.so': blob_fixup()
         .binary_regex_replace(b'qti.sensor.wise_light', b'android.sensor.light\x00')
         .sig_replace('F1 E9 D3 84 52 49 3F A0 72', 'F1 A9 00 80 52 09 00 A0 72'),
